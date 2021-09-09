@@ -1,8 +1,13 @@
-export default function fetchCountries(searchQuery) {
+ const BASE_URL = 'https://restcountries.eu';
+
+ async function fetchCountries(searchQuery) {
     const name = searchQuery;    
-    return fetch(`https://restcountries.eu/rest/v2/name/${name}`)
-    .then(result => result.json())
+    const response = await fetch(`${BASE_URL}/rest/v2/name/${name}`)
+    const result = await response.json();
+    return result;
         
 }
+
+export default fetchCountries;
 
         
